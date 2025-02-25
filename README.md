@@ -39,7 +39,7 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
   }
   ```
   
-  - **Failure Internal Error:**
+- **Failure Internal Error:**
   ```json
   {
     "message": "Gagal menambahkan buku"
@@ -143,7 +143,7 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
     "message": "Buku tidak ditemukan atau tidak ada perubahan data"
   }
   ```
-  - **Failure Internal Error:**
+- **Failure Internal Error:**
   ```json
   {
     "message": "Gagal mengupdate buku"
@@ -169,7 +169,7 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
     "message": "Buku tidak ditemukan"
   }
   ```
-  - **Failure Internal Error:**
+- **Failure Internal Error:**
   ```json
   {
     "message": "Gagal menghapus buku"
