@@ -15,7 +15,9 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
 
 ### Mengambil Seluruh Buku
 **URL:**
-`POST /books`
+`/books`
+**Method:**
+`GET`
 
 **Response:**
 - **Success:**
