@@ -8,4 +8,4 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
 - Mengedit Buku
 - Menghapus Buku
 - Mengambil daftar Buku
-- Mengambil data Buku berdasarkan I
+- Mengambil data Buku berdasarkan Id
