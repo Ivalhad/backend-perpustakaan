@@ -1,9 +1,14 @@
 const Hapi = require('@hapi/hapi');
 
+// Membuat instance server terlebih dahulu
 const server = Hapi.server({
     port: process.env.PORT || 3000,
     host: process.env.HOST || 'localhost'
 });
+
+// Import dan daftarkan routes
+const bookRoutes = require('../routes/bookRoutes');
+server.route(bookRoutes);
 
 // Route untuk halaman utama
 server.route({
