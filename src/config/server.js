@@ -1,4 +1,6 @@
 const Hapi = require('@hapi/hapi');
+const bookRoutes = require('../routes/bookRoutes');
+const adminRoutes = require('../routes/adminRoutes');
 
 // Membuat instance server terlebih dahulu
 const server = Hapi.server({
@@ -7,11 +9,8 @@ const server = Hapi.server({
 });
 
 // Import dan daftarkan routes
-const bookRoutes = require('../routes/bookRoutes');
 server.route(bookRoutes);
-
-const adminRoutes = require('../routes/adminRoutes');
-server.route(adminRoutes)
+server.route(adminRoutes);
 
 // Route untuk halaman utama
 server.route({

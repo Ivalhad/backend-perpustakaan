@@ -1,10 +1,12 @@
+'use strict';
+
 const Joi = require('joi');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken'); // Import jsonwebtoken
+const Jwt = require('@hapi/jwt'); // Gunakan @hapi/jwt
 const { getAdminByUsername, createAdmin } = require('../models/adminModel');
 
 const adminRoutes = [
-    // Endpoint untuk registrasi admin (untuk testing/penambahan admin baru)
+    // Endpoint untuk registrasi admin
     {
         method: 'POST',
         path: '/admin/register',
@@ -22,7 +24,6 @@ const adminRoutes = [
         handler: async (request, h) => {
             try {
                 const { username, password } = request.payload;
-                // Cek apakah admin dengan username tersebut sudah ada
                 const existingAdmin = await getAdminByUsername(username);
                 if (existingAdmin) {
                     return h.response({ message: 'Admin dengan username ini sudah terdaftar' }).code(400);
@@ -36,7 +37,7 @@ const adminRoutes = [
         }
     },
 
-    // Endpoint untuk login admin dengan token
+    // Endpoint untuk login admin
     {
         method: 'POST',
         path: '/admin/login',
@@ -58,17 +59,18 @@ const adminRoutes = [
                 if (!admin) {
                     return h.response({ message: 'Username atau password salah' }).code(401);
                 }
-                // Bandingkan password yang dikirim dengan password yang telah di-hash
                 const isValid = await bcrypt.compare(password, admin.password);
                 if (!isValid) {
                     return h.response({ message: 'Username atau password salah' }).code(401);
                 }
-                // Generate JWT token dengan payload admin (misalnya id dan username)
-                const token = jwt.sign(
+
+                // Buat JWT token menggunakan @hapi/jwt
+                const token = Jwt.token.generate(
                     { id: admin.id, username: admin.username },
-                    process.env.JWT_SECRET,
-                    { expiresIn: '1h' }
+                    { key: process.env.JWT_SECRET, algorithm: 'HS256' },
+                    { ttlSec: 3600 } // Token berlaku selama 1 jam
                 );
+
                 return h.response({ message: 'Login berhasil', token }).code(200);
             } catch (error) {
                 console.error('Error saat login admin:', error);
