@@ -9,6 +9,7 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
 - Menghapus Buku
 - Mengambil daftar Buku
 - Mengambil data Buku berdasarkan Id
+- Admin Login dan Registrasi
 
 
 ## API EndPoint
