@@ -10,6 +10,9 @@ const server = Hapi.server({
 const bookRoutes = require('../routes/bookRoutes');
 server.route(bookRoutes);
 
+const adminRoutes = require('../routes/adminRoutes');
+server.route(adminRoutes)
+
 // Route untuk halaman utama
 server.route({
     method: 'GET',
