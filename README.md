@@ -14,6 +14,7 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
 
 ## API EndPoint
 
+## Admin Kelola Buku
 ### Menambah Buku
 **URL:**
 `/books`
@@ -174,5 +175,76 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
   ```json
   {
     "message": "Gagal menghapus buku"
+  }
+  ```
+
+## Admin Login dan Registrasi
+### Admin Login
+**URL:**
+`/admin/login`
+**Method:**
+`POST`
+
+**Body Request**
+  ```json
+{
+  "username": "admin1",
+  "password": "password"
+}
+  ```
+
+**Response:**
+- **Success:**
+  ```json
+  {
+  "message": "Login berhasil",
+  "token": "jwt-token-string"
+  }
+  ```
+- **Failure Not Found:**
+  ```json
+  {
+  "message": "Username atau password salah"
+  }
+  ```
+- **Failure Internal Error:**
+  ```json
+  {
+  "message": "Gagal login admin"
+  }
+  ```
+
+  ### Admin Registrasi
+**URL:**
+`/admin/register`
+**Method:**
+`POST`
+
+**Body Request**
+  ```json
+{
+  "username": "admin1",
+  "password": "password"
+
+  ```
+
+**Response:**
+- **Success:**
+  ```json
+  {
+  "message": "Admin berhasil diregistrasi",
+  "adminId": "uuid-generated-value"
+  }
+  ```
+- **Failure Already User:**
+  ```json
+  {
+  "message": "Admin dengan username ini sudah terdaftar"
+  }
+  ```
+- **Failure Internal Error:**
+  ```json
+  {
+  "message": "Gagal registrasi admin"
   }
   ```
