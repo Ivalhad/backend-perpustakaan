@@ -304,7 +304,7 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
   }
   ```
 
-### Admin Registrasi
+### User Registrasi
 **URL:**
 `/user/register`
 **Method:**
