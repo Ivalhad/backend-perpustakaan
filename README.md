@@ -25,7 +25,7 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
   DB_NAME=
   DB_PORT=
 
-  # ... konfigurasi lainnya
+  # konfigurasi lainnya
   JWT_SECRET=
   ```
 
