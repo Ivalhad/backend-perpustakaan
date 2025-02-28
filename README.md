@@ -11,6 +11,24 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
 - Mengambil data Buku berdasarkan Id
 - Admin Login dan Registrasi
 
+## File Configuration
+**.env**
+  ```json
+  # Server Configuration
+  PORT=
+  HOST=
+
+  # Database Configuration
+  DB_HOST=
+  DB_USER=
+  DB_PASSWORD=
+  DB_NAME=
+  DB_PORT=
+
+  # ... konfigurasi lainnya
+  JWT_SECRET=
+  ```
+
 
 ## API EndPoint
 
