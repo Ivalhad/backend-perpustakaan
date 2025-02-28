@@ -10,6 +10,7 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
 - Mengambil daftar Buku
 - Mengambil data Buku berdasarkan Id
 - Admin Login dan Registrasi
+- user Login dan Registrasi
 
 ## File Configuration
 **.env**
