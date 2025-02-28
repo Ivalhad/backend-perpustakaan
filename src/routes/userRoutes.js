@@ -38,7 +38,7 @@ const userRoutes = [
                 }).code(201);
 
             } catch (error) {
-                console.error('Error register user:', error);
+                console.error('Gagal register user:', error);
                 return h.response({ message: 'Gagal register user' }).code(500);
             }
         }
@@ -89,7 +89,7 @@ const userRoutes = [
                 }).code(200);
 
             } catch (error) {
-                console.error('Error login user:', error);
+                console.error('Gagal login user:', error);
                 return h.response({ message: 'Gagal login user' }).code(500);
             }
         }

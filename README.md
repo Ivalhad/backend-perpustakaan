@@ -240,10 +240,10 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
 
 **Body Request**
   ```json
-{
+ {
   "username": "admin1",
   "password": "password"
-
+ }
   ```
 
 **Response:**
@@ -264,5 +264,77 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
   ```json
   {
   "message": "Gagal registrasi admin"
+  }
+  ```
+
+
+## User Login Register
+### User Login
+**URL:**
+`/user/login`
+**Method:**
+`POST`
+
+**Body Request**
+  ```json
+  {
+  "username": "name",
+  "password": "password"
+  }
+  ```
+
+**Response:**
+- **Success:**
+  ```json
+  {
+  "message": "Login Berhasil",
+  "Token": "JWT-token-string"
+  }
+  ```
+- **Failure Not Found:**
+  ```json
+  {
+  "message": "'Username atau password salah"
+  }
+  ```
+- **Failure Internal Error:**
+  ```json
+  {
+  "message": "Gagal login user"
+  }
+  ```
+
+### Admin Registrasi
+**URL:**
+`/user/register`
+**Method:**
+`POST`
+
+**Body Request**
+  ```json
+  {
+  "username": "name",
+  "password": "password"
+  }
+  ```
+
+**Response:**
+- **Success:**
+  ```json
+  {
+  "message": "User berhasil diregistrasi",
+  "adminId": "uuid-generated-value"
+  }
+  ```
+- **Failure Already User:**
+  ```json
+  {
+  "message": "Username ini sudah terdaftar"
+  }
+  ```
+- **Failure Internal Error:**
+  ```json
+  {
+  "message": "Gagal registrasi user"
   }
   ```
