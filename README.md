@@ -1,4 +1,4 @@
-# Sistem Backend Admin Perpustakaan
+# Sistem Backend Perpustakaan
 
 Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database **MySQL** untuk mengelola data buku dalam perpustakaan.
 
