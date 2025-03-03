@@ -339,3 +339,86 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
   "message": "Gagal registrasi user"
   }
   ```
+
+## User Pinjam dan Kembalikan Buku
+### User Meminjam Buku
+**URL:**
+`/user/borrow`
+**Method:**
+`POST`
+
+**Body Request**
+  ```json
+  {
+  "userId": "uuid-generated-value",
+  "bookId": "uuid-generated-value"
+  }
+  ```
+
+**Response:**
+- **Success:**
+  ```json
+  {
+  "message": "Buku berhasil dipinjam",
+  "borrowId": 1
+  }
+  ```
+- **Failure Buku Not found:**
+  ```json
+  {
+  "message": "Buku tidak ditemukan"
+  }
+  ```
+- **Failure Buku Habis:**
+  ```json
+  {
+  "message": "Stok buku habis"
+  }
+  ```
+- **Failure Sudah Pinjam:**
+  ```json
+  {
+  "message": "Anda sudah meminjam buku ini"
+  }
+  ```
+- **Failure Internal Error:**
+  ```json
+  {
+  "message": "Gagal meminjam buku"
+  }
+  ```
+
+### User Kembalikan Buku
+**URL:**
+`/user/return`
+**Method:**
+`POST`
+
+**Body Request**
+  ```json
+  {
+  "userId": "uuid-generated-value",
+  "bookId": "uuid-generated-value"
+  }
+  ```
+
+**Response:**
+- **Success:**
+  ```json
+  {
+  "message": "Buku berhasil dikembalikan",
+  "returnId": 1
+  }
+  ```
+- **Failure Tidak Ada Data Peminjaman:**
+  ```json
+  {
+  "message": "Buku tidak ditemukan dalam peminjaman Anda"
+  }
+  ```
+- **Failure Internal Error:**
+  ```json
+  {
+  "message": "Gagal mengembalikan buku"
+  }
+  ```
