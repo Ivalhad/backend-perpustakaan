@@ -8,6 +8,14 @@ const getUserByUsername = async (username) => {
     return rows[0];
 };
 
+// Ambil user berdasarkan ID
+const getUserById = async (id) => {
+    const [rows] = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
+    return rows[0];
+};
+
+
+
 // Membuat user baru dengan ID random (UUID) & password ter-hash
 const createUser = async (username, password) => {
     const id = uuidv4();
@@ -23,5 +31,6 @@ const createUser = async (username, password) => {
 
 module.exports = {
     getUserByUsername,
-    createUser
+    createUser,
+    getUserById
 };

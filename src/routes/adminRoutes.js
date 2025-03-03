@@ -1,5 +1,3 @@
-'use strict';
-
 const Joi = require('joi');
 const bcrypt = require('bcrypt');
 const Jwt = require('@hapi/jwt'); // Gunakan @hapi/jwt
