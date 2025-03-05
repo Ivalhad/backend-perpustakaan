@@ -65,4 +65,26 @@ const returnBook = async (userId, bookId) => {
     return rows[0].id;
 };
 
-module.exports = { borrowBook, returnBook };
+// Fungsi untuk mendapatkan histori transaksi berdasarkan userId
+const getTransactionsByUser = async (userId) => {
+    const [rows] = await pool.query(
+        'SELECT * FROM borrowed_books WHERE user_id = ? ORDER BY borrow_date DESC',
+        [userId]
+    );
+    return rows;
+};
+
+// Fungsi untuk mendapatkan seluruh histori transaksi
+const getAllTransactions = async () => {
+    const [rows] = await pool.query(
+        'SELECT * FROM borrowed_books ORDER BY borrow_date DESC'
+    );
+    return rows;
+};
+
+module.exports = {
+    borrowBook,
+    returnBook,
+    getTransactionsByUser,
+    getAllTransactions
+};  
