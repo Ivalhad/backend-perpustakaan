@@ -18,6 +18,15 @@ const checkUserBorrowing = async (userId, bookId) => {
     return rows.length > 0;
 };
 
+// Fungsi untuk mengambil judul buku dari tabel books
+const getBookTitle = async (bookId) => {
+    const [rows] = await pool.query(
+        'SELECT title FROM books WHERE id = ?',
+        [bookId]
+    );
+    return rows.length > 0 ? rows[0].title : null;
+};
+
 // Fungsi untuk memproses peminjaman buku
 const borrowBook = async (userId, bookId) => {
     const stock = await checkBookAvailability(bookId);
@@ -32,13 +41,19 @@ const borrowBook = async (userId, bookId) => {
         throw new Error('Anda sudah meminjam buku ini');
     }
 
+    // Ambil judul buku
+    const title = await getBookTitle(bookId);
+    if (!title) {
+        throw new Error('Judul buku tidak ditemukan');
+    }
+
     // Kurangi stok buku
     await pool.query('UPDATE books SET stock = stock - 1 WHERE id = ?', [bookId]);
 
-    // Catat transaksi peminjaman di tabel borrowed_books
+    // Catat transaksi peminjaman di tabel borrowed_books termasuk nama buku
     const [result] = await pool.query(
-        'INSERT INTO borrowed_books (user_id, book_id) VALUES (?, ?)',
-        [userId, bookId]
+        'INSERT INTO borrowed_books (user_id, book_id, book_title) VALUES (?, ?, ?)',
+        [userId, bookId, title]
     );
     return result.insertId;
 };
@@ -87,4 +102,4 @@ module.exports = {
     returnBook,
     getTransactionsByUser,
     getAllTransactions
-};  
+};
