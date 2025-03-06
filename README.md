@@ -459,7 +459,6 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
   }
   ```
 
-## Histori Transaksi
 ### Histori Seluruh User
 **URL:**
 `/user/transactions`
