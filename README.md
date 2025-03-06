@@ -423,3 +423,71 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
   "message": "Gagal mengembalikan buku"
   }
   ```
+
+## Histori Transaksi
+### Histori User
+**URL:**
+`/user/transactions/{userId}`
+**Method:**
+`GET`
+
+**Response:**
+- **Success:**
+  ```json
+  {
+    "id": 1,
+    "user_id": "uuid-user-generated-value",
+    "book_id": "uuid-book-generated-value",
+    "book_title": "Judul Buku Contoh",
+    "borrow_date": "2023-07-01T10:00:00.000Z",
+    "return_date": null
+  },
+  {
+    "id": 2,
+    "user_id": "uuid-user-generated-value",
+    "book_id": "uuid-book-generated-value",
+    "book_title": "Judul Buku Lainnya",
+    "borrow_date": "2023-06-30T09:00:00.000Z",
+    "return_date": "2023-07-01T08:30:00.000Z"
+  }
+  ```
+- **Failure Internal Error:**
+  ```json
+  {
+   "message": "Gagal mengambil histori transaksi"
+  }
+  ```
+
+## Histori Transaksi
+### Histori Seluruh User
+**URL:**
+`/user/transactions`
+**Method:**
+`GET`
+
+**Response:**
+- **Success:**
+  ```json
+  {
+    "id": 1,
+    "user_id": "uuid-user-generated-value",
+    "book_id": "uuid-book-generated-value",
+    "book_title": "Judul Buku Contoh",
+    "borrow_date": "2023-07-01T10:00:00.000Z",
+    "return_date": null
+  },
+  {
+    "id": 2,
+    "user_id": "uuid-user-generated-value",
+    "book_id": "uuid-book-generated-value",
+    "book_title": "Judul Buku Lainnya",
+    "borrow_date": "2023-06-30T09:00:00.000Z",
+    "return_date": "2023-07-01T08:30:00.000Z"
+  }
+  ```
+- **Failure Internal Error:**
+  ```json
+  {
+   "message": "Gagal mengambil histori transaksi"
+  }
+  ```
