@@ -11,7 +11,8 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
 - Mengambil data Buku berdasarkan Id
 - Admin Login dan Registrasi
 - User Login dan Registrasi dengan JWT
-- User Pinjam dan Kembalikan buku 
+- User Pinjam dan Kembalikan buku
+- Melihat histori peminjaman buku salah satu user dan seluruh user
 
 ## File Configuration
 **.env**
