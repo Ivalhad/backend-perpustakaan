@@ -14,6 +14,12 @@ Sistem ini menggunakan **Node.js** dengan framework **Hapi.js** serta database *
 - User Pinjam dan Kembalikan buku
 - Melihat histori peminjaman buku salah satu user dan seluruh user
 
+## Start Project
+**Install Dependecies**
+  ```json
+  npm i
+  ```
+
 ## File Configuration
 **.env**
   ```json
